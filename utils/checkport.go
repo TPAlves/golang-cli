@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func CheckPort (host string, ports []string) {
+func CheckPort(host string, ports []string) {
 	for _, port := range ports {
 		timeout := time.Second
 		conn, err := net.DialTimeout("tcp", net.JoinHostPort(host, port), timeout)

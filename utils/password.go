@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func GeneretePassword (size int) string {
+func GeneretePassword(size int) string {
 	source := rand.NewSource(time.Now().UnixNano())
 	r := rand.New(source)
 	if size < 8 {
