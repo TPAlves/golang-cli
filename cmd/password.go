@@ -4,15 +4,15 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"cli-devops/utils"
-
 	"github.com/spf13/cobra"
+
+	"cli-devops/utils"
 )
 
 // passwordCmd represents the password command
 var passwordCmd = &cobra.Command{
 	Use:   "password",
-	Short: "A brief description of your command",
+	Short: "Gera senha aleatória",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 

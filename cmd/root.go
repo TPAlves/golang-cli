@@ -1,12 +1,12 @@
 /*
 Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
 	"os"
 
+	"github.com/i582/cfmt/cmd/cfmt"
 	"github.com/spf13/cobra"
 )
 
@@ -15,16 +15,7 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "cli-devops",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Short: "Aplicação de DevOps 🚀",
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -45,7 +36,20 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	cfmt.RegisterStyle("code", func(s string) string {
+		return cfmt.Sprintf("{{%s}}::red|underline", s)
+	})
+
+	cfmt.Printf(`
+{{+-------------------------------------------+}}::bold
+{{|       🚀🚀🚀 DevOps CLI 🚀🚀🚀            |}}::bold
+{{+-------------------------------------------+}}::bold
+{{100}}::#ffffff myStyle := color.{{New(color.FgWhite, color.BgBlack, color.OpBold)}}::code|bold
+{{[100, 17]}}::blue Undefined function New at {{~/projects/test}}::underline:100
+
+{{101}}::#ffffff {{myStyle}}::code.Print("t")
+{{[101, 0]}}::blue Undefined variable myStyle at {{~/projects/test}}::underline:101
+
+Para mais informações visite: https://www.google.com.br/
+	`)
 }
-
-
