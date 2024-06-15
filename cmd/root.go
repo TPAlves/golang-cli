@@ -36,6 +36,7 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
+	cobra.MousetrapHelpText = ""
 	cfmt.RegisterStyle("code", func(s string) string {
 		return cfmt.Sprintf("{{%s}}::red|underline", s)
 	})
